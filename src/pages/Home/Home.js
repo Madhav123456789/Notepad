@@ -44,10 +44,10 @@ function Home() {
     // this function will be used to make note active
     const makeNoteActive = (id) => {
         // setting active with toggling
-        if(!active){
-            setActive(id);
-        }else{
+        if(active === id){
             setActive(false);
+        }else{
+            setActive(id);
         }
     };
 
