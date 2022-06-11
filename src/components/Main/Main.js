@@ -34,11 +34,11 @@ function Main({
         </div>
         <div className={styles.main_footer}>
           <div className={styles.prevs}>
-            <div>Title's Preview</div>
+            <div style={{color:"#1d1d93" , fontWeight:"600"}}>Title's Preview</div>
             {activeNote.title}
           </div>
           <div className={styles.prevs}>
-            <div>Note's Preview</div>
+            <div style={{color:"#1d1d93" , fontWeight:"600"}}>Note's Preview</div>
             {activeNote.note}
           </div>
         </div>
