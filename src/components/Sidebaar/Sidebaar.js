@@ -1,13 +1,15 @@
 import styles from "./style.module.css";
 import { IoMdAddCircle } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
+import { FaExchangeAlt } from "react-icons/fa";
 
 function Sidebaar({
   notes,
   onAddNote,
   onDeleteNote,
   onClickNote,
-  isActive
+  isActive,
+  onSetDirection
 }) {
   return (
     <>
@@ -17,7 +19,10 @@ function Sidebaar({
           <div className={styles.sidebaar_title}>
             Notepad
           </div>
-          <IoMdAddCircle onClick={onAddNote} className={styles.sidebaar_add} size={25} />
+          <div style={{width:'20%',display:"flex" , alignItems:"center" , justifyContent:"space-around"}}>
+            <IoMdAddCircle onClick={onAddNote} className={styles.sidebaar_add} size={25} />
+            <FaExchangeAlt onClick={onSetDirection} color="black" className={styles.sidebaar_add} size={25}/>
+          </div>
         </div>
 
         <div className={styles.contianer}>

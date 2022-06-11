@@ -6,6 +6,7 @@ import styles from "./style.module.css";
 function Home() {
     const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes"))||[]);
     const [active, setActive] = useState(false);
+    const [direction , setDirection] = useState("row-reverse");
 
     useEffect(()=>{
         localStorage.setItem("notes" , JSON.stringify(notes));
@@ -63,16 +64,28 @@ function Home() {
 
         // setting note
         setNotes(newNotes);
-    }
+    };
+
+    // this function will be used to change the direction of the editor and note populater
+    const changeDirection=()=>{
+        // toggling the dirctions
+        if(direction === "row"){
+            setDirection("row-reverse");
+        }else{
+            setDirection("row");
+        }
+        console.log(direction)
+    };
 
     return (
-        <div className={styles.home}>
+        <div style={{flexDirection:direction}} className={styles.home}>
             <Sidebaar
                 onAddNote={addNote}
                 notes={notes}
                 onDeleteNote={deleteNote}
                 onClickNote={makeNoteActive}
                 isActive={active}
+                onSetDirection={changeDirection}
             />
             <Main
                 activeNote={getActiveNote()}
