@@ -6,6 +6,7 @@
     height: 100vh;
     overflow-y: auto;
     border-right: 1px solid rgba(0, 0, 0, 0.043);
+    border-left: 1px solid rgba(0, 0, 0, 0.043);
 }
 
 /* for making scroll bar hide  */
