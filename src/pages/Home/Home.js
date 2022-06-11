@@ -6,12 +6,16 @@ import styles from "./style.module.css";
 function Home() {
     const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes"))||[]);
     const [active, setActive] = useState(false);
-    const [direction , setDirection] = useState("row-reverse");
+    const [direction , setDirection] = useState(localStorage.getItem("direction")||"row-reverse");
 
     useEffect(()=>{
         localStorage.setItem("notes" , JSON.stringify(notes));
     },[notes]);
 
+    useEffect(()=>{
+        localStorage.setItem("direction" , direction);
+    },[direction]);
+    
     // this function will create a note
     const addNote = () => {
         const newNote = {

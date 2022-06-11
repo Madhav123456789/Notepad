@@ -21,7 +21,7 @@ function Sidebaar({
           </div>
           <div style={{width:'20%',display:"flex" , alignItems:"center" , justifyContent:"space-around"}}>
             <IoMdAddCircle onClick={onAddNote} className={styles.sidebaar_add} size={25} />
-            <FaExchangeAlt onClick={onSetDirection} color="black" className={styles.sidebaar_add} size={25}/>
+            <FaExchangeAlt style={{marginLeft:"20px"}} onClick={onSetDirection} color="black" className={styles.sidebaar_add} size={25}/>
           </div>
         </div>
 
@@ -30,13 +30,13 @@ function Sidebaar({
             return <div key={index} onClick={() => { onClickNote(id) }} className={`${isActive && isActive === id ? styles.active : styles.notes}`}>
               <div className={styles.header}>
                 <div className={`${styles.title} ${isActive && isActive === id ? styles.white : styles.black}`}>
-                  {title}
+                  {title.length > 25 ? title.substring(0,25)+"...":title.substring(0,25)}
                 </div>
                 <MdDelete onClick={(e) => { e.stopPropagation(); onDeleteNote(id); }} className={styles.icon_delete} size={25} />
               </div>
               <div className={styles.footer}>
                 <div className={styles.note_preview}>
-                  {note.substring(0, 25)}
+                  {note.length > 33 ? note.substring(0,33)+"...":note.substring(0,33)}
                 </div>
                 <div className={styles.lastModified}>
                   Last Modified - {new Date(time).toLocaleDateString("en-GB", {
